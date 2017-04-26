@@ -1,0 +1,15 @@
+<!doctype <html>
+<head>
+    <title>Student Info</title>
+</head>
+<body>
+    <h1>{{ first }} {{ last }}</h1>
+    <p>Github Account: {{ github }}</p>
+    <ul>
+        {% for title, grade in grades %}
+            <li>Project: {{ title }}; Grade: {{ grade }}</li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
