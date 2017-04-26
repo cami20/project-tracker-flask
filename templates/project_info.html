@@ -3,13 +3,11 @@
     <title>Project Information</title>
 </head>
 <body>
+    <h1>Project Information</h1>
     <ul>
         <li>
-        
-            {% for desc, max_grade in project_info %}
-                Description: {{ desc }};
-                Maximum Grade: {{ max_grade }}
-            {% endfor %}
+            Title: {{ title }}; Description: {{ desc }};
+            Maximum Grade: {{ max_grade }}
         </li>
     </ul>
 </body>
