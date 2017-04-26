@@ -37,13 +37,28 @@ def display_student_add_form():
 @app.route("/student-add", methods=['POST'])
 def student_add():
     """Add a student."""
-    """working on redirecting to student info"""
     first = request.form.get('fname')
     last = request.form.get('lname')
     github = request.form.get('github')
-    new_student = hackbright.make_new_student(first, last, github)
+    hackbright.make_new_student(first, last, github)
 
-    return render_template('student_info.html', new_student)
+    return render_template("student_info.html",
+                           first=first,
+                           last=last,
+                           github=github)
+
+
+@app.route("/project/<title>")
+def display_project(title):
+    """Displays project info."""
+
+    # title = request.args.get("title")
+    project_info = hackbright.get_project_by_title(title)
+    print len(project_info)
+    
+    return render_template("project_info.html",
+                            project_info=project_info[1:])
+
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
